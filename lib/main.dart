@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_travel_app_ui/screens/hotels_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'screens/hotels_screen.dart';
 
 import 'screens/activities_screen.dart';
 import 'widgets/side_bar.dart';
@@ -23,7 +23,7 @@ class TravelApp extends StatelessWidget {
       initialRoute: '/activities',
       routes: {
         ActivitiesScreen.routeName: (context) => const ActivitiesScreen(),
-        HotelsScreen.routeName: ((context) => const HotelsScreen()),
+        HotelsScreen.routeName: (context) => const HotelsScreen(),
       },
       builder: (context, child) {
         return _TravelApp(

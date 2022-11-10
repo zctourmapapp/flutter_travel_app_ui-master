@@ -19,8 +19,8 @@ class SideBar extends StatefulWidget {
 class _SideBarState extends State<SideBar> {
   List<Map> menu = [
     {'title': 'Tourist Spots', 'routeName': '/activities'},
-    {'title': 'Hotels', 'routeName': '/hotels'},
-    {'title': 'Restaurants', 'routeName': '/restaurants'},
+    {'title': 'Restaurants', 'routeName': '/hotels'},
+
   ];
 
   int sideBarIndex = 0;

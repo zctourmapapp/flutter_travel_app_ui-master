@@ -2,34 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../widgets/clipped_container.dart';
 
-import '../models/activity_model.dart';
+import '../models/hotel_model.dart';
 
-class ActivityDetailsScreen extends StatelessWidget {
-  const ActivityDetailsScreen({
+class HotelDetailsScreen extends StatelessWidget {
+  const HotelDetailsScreen({
     Key? key,
-    required this.activity,
+    required this.hotel,
   }) : super(key: key);
 
-  final Activity activity;
+  final Hotel hotel;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _ActivityImage(activity: activity),
-        _ActivityInformation(activity: activity),
+        _HotelImage(hotel: hotel),
+        _HotelInformation(hotel: hotel),
       ],
     );
   }
 }
 
-class _ActivityImage extends StatelessWidget {
-  const _ActivityImage({
+class _HotelImage extends StatelessWidget {
+  const _HotelImage({
     Key? key,
-    required this.activity,
+    required this.hotel,
   }) : super(key: key);
 
-  final Activity activity;
+  final Hotel hotel;
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +37,21 @@ class _ActivityImage extends StatelessWidget {
       children: [
         const ClippedContainer(height: 425),
         Hero(
-          tag: '${activity.id}_${activity.title}',
-          child: ClippedContainer(imageUrl: activity.imageUrl),
+          tag: '${hotel.id}_${hotel.title}',
+          child: ClippedContainer(imageUrl: hotel.imageUrl),
         ),
       ],
     );
   }
 }
 
-class _ActivityInformation extends StatelessWidget {
-  const _ActivityInformation({
+class _HotelInformation extends StatelessWidget {
+  const _HotelInformation({
     Key? key,
-    required this.activity,
+    required this.hotel,
   }) : super(key: key);
 
-  final Activity activity;
+  final Hotel hotel;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class _ActivityInformation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              activity.title,
+              hotel.title,
               style: Theme.of(context)
                   .textTheme
                   .headlineSmall!
@@ -74,7 +74,7 @@ class _ActivityInformation extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             RatingBar.builder(
-              initialRating: activity.rating,
+              initialRating: hotel.rating,
               minRating: 0,
               direction: Axis.horizontal,
               ignoreGestures: true,
@@ -96,7 +96,7 @@ class _ActivityInformation extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              activity.description,
+              hotel.description,
               textAlign: TextAlign.justify,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
