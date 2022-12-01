@@ -3,6 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../widgets/clipped_container.dart';
 
 import '../models/activity_model.dart';
+import 'map_page.dart';
 
 class ActivityDetailsScreen extends StatelessWidget {
   const ActivityDetailsScreen({
@@ -105,7 +106,9 @@ class _ActivityInformation extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // Navigator.push(context, MaterialPageRoute(builder:(context)=> MapPage()));
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xFF231955),
                     shape: RoundedRectangleBorder(
@@ -115,6 +118,7 @@ class _ActivityInformation extends StatelessWidget {
                   child: Text(
                     'Get Directions',
                     style: Theme.of(context)
+                    
                         .textTheme
                         .bodyLarge!
                         .copyWith(color: Colors.white),
@@ -128,3 +132,5 @@ class _ActivityInformation extends StatelessWidget {
     );
   }
 }
+
+

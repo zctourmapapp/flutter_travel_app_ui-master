@@ -6,11 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'screens/activities_screen.dart';
 import 'widgets/side_bar.dart';
+import 'screens/map_page.dart';
 
 void main() => runApp(const TravelApp());
 
-// https://stackoverflow.com/questions/51659805/persisting-appbar-drawer-across-all-pages-flutter
-// https://github.com/ayalma/flutter_multi_page_drawer/blob/master/lib/main.dart
+
 
 class TravelApp extends StatelessWidget {
   const TravelApp({Key? key}) : super(key: key);
