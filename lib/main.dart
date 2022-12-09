@@ -1,12 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_travel_app_ui/screens/hotels_screen.dart';
+import 'package:flutter_travel_app_ui/screens/restaurant_screen.dart';
+import 'package:flutter_travel_app_ui/widgets/side_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'screens/activities_screen.dart';
-import 'widgets/side_bar.dart';
-import 'screens/map_page.dart';
 
 void main() => runApp(const TravelApp());
 

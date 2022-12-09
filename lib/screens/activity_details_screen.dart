@@ -107,7 +107,7 @@ class _ActivityInformation extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Navigator.push(context, MaterialPageRoute(builder:(context)=> MapPage()));
+                    Navigator.push(context, MaterialPageRoute(builder:(context)=> MapPage(activity: activity,)));
                   },
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xFF231955),
@@ -118,7 +118,7 @@ class _ActivityInformation extends StatelessWidget {
                   child: Text(
                     'Get Directions',
                     style: Theme.of(context)
-                    
+
                         .textTheme
                         .bodyLarge!
                         .copyWith(color: Colors.white),

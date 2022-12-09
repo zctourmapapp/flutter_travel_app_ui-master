@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../models/hotel_model.dart';
+import '../models/restaurant_model.dart';
 import '../widgets/custom_header.dart';
-import 'hotel_details_screen.dart';
+import 'restaurant_details_screen.dart';
 
 class HotelsScreen extends StatelessWidget {
   const HotelsScreen({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class HotelsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    List<Hotel> hotels = Hotel.hotels;
+    List<Restaurant> restaurant = Restaurant.restaurants;
 
     return SingleChildScrollView(
       child: Column(
@@ -23,7 +23,7 @@ class HotelsScreen extends StatelessWidget {
           const CustomHeader(title: 'Restaurants'),
           _HotelMasonryGrid(
             width: width,
-            hotels: hotels,
+            restaurants: restaurant,
           ),
         ],
       ),
@@ -36,12 +36,12 @@ class _HotelMasonryGrid extends StatelessWidget {
     Key? key,
     this.masonryCardHeights = const [200, 250, 300],
     required this.width,
-    required this.hotels,
+    required this.restaurants,
   }) : super(key: key);
 
   final List<double> masonryCardHeights;
   final double width;
-  final List<Hotel> hotels;
+  final List<Restaurant> restaurants;
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +54,10 @@ class _HotelMasonryGrid extends StatelessWidget {
       mainAxisSpacing: 10,
       crossAxisSpacing: 10,
       itemBuilder: (context, index) {
-        Hotel hotel = hotels[index];
+        Restaurant restaurant = restaurants [index];
         return _buildActivityCard(
           context,
-          hotel,
+          restaurant,
           index,
         );
       },
@@ -66,7 +66,7 @@ class _HotelMasonryGrid extends StatelessWidget {
 
   InkWell _buildActivityCard(
       BuildContext context,
-      Hotel hotel,
+      Restaurant restaurant,
       int index,
       ) {
     return InkWell(
@@ -74,20 +74,20 @@ class _HotelMasonryGrid extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => HotelDetailsScreen(hotel: hotel),
+            builder: (context) => HotelDetailsScreen(restaurant: restaurant),
           ),
         );
       },
       child: Column(
         children: [
           Hero(
-            tag: '${hotel.id}_${hotel.title}',
+            tag: '${restaurant.id}_${restaurant.title}',
             child: Container(
               height: masonryCardHeights[index % 3],
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
                 image: DecorationImage(
-                  image: NetworkImage(hotel.imageUrl),
+                  image: NetworkImage(restaurant.imageUrl),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -95,7 +95,7 @@ class _HotelMasonryGrid extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            hotel.title,
+            restaurant.title,
             maxLines: 3,
             style: Theme.of(context)
                 .textTheme

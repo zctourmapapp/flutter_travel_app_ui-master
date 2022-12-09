@@ -2,22 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../widgets/clipped_container.dart';
 
-import '../models/hotel_model.dart';
+import '../models/restaurant_model.dart';
+import 'map_page.dart';
 
 class HotelDetailsScreen extends StatelessWidget {
   const HotelDetailsScreen({
     Key? key,
-    required this.hotel,
+    required this.restaurant,
   }) : super(key: key);
 
-  final Hotel hotel;
+  final Restaurant restaurant;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _HotelImage(hotel: hotel),
-        _HotelInformation(hotel: hotel),
+        _HotelImage(restaurant: restaurant),
+        _HotelInformation(restaurant: restaurant),
       ],
     );
   }
@@ -26,10 +27,10 @@ class HotelDetailsScreen extends StatelessWidget {
 class _HotelImage extends StatelessWidget {
   const _HotelImage({
     Key? key,
-    required this.hotel,
+    required this.restaurant,
   }) : super(key: key);
 
-  final Hotel hotel;
+  final Restaurant restaurant;
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +38,8 @@ class _HotelImage extends StatelessWidget {
       children: [
         const ClippedContainer(height: 425),
         Hero(
-          tag: '${hotel.id}_${hotel.title}',
-          child: ClippedContainer(imageUrl: hotel.imageUrl),
+          tag: '${restaurant.id}_${restaurant.title}',
+          child: ClippedContainer(imageUrl: restaurant.imageUrl),
         ),
       ],
     );
@@ -48,10 +49,10 @@ class _HotelImage extends StatelessWidget {
 class _HotelInformation extends StatelessWidget {
   const _HotelInformation({
     Key? key,
-    required this.hotel,
+    required this.restaurant,
   }) : super(key: key);
 
-  final Hotel hotel;
+  final Restaurant restaurant;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,7 @@ class _HotelInformation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              hotel.title,
+              restaurant.title,
               style: Theme.of(context)
                   .textTheme
                   .headlineSmall!
@@ -74,7 +75,7 @@ class _HotelInformation extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             RatingBar.builder(
-              initialRating: hotel.rating,
+              initialRating: restaurant.rating,
               minRating: 0,
               direction: Axis.horizontal,
               ignoreGestures: true,
@@ -96,7 +97,7 @@ class _HotelInformation extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              hotel.description,
+              restaurant.description,
               textAlign: TextAlign.justify,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
@@ -105,7 +106,9 @@ class _HotelInformation extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder:(context)=> RestaurantPage(restaurant: restaurant,)));
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xFF231955),
                     shape: RoundedRectangleBorder(

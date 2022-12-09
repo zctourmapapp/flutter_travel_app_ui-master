@@ -1,22 +1,27 @@
-class Hotel {
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+class Restaurant {
   final String id;
   final String title;
   final String description;
   final String imageUrl;
   final double price;
   final double rating;
+  final LatLng? location;
 
-  const Hotel({
+  const Restaurant({
     required this.id,
     required this.title,
     required this.description,
     required this.imageUrl,
     required this.price,
     required this.rating,
+    this.location,
+
   });
 
-  static const List<Hotel> hotels = [
-    Hotel(
+  static const List<Restaurant> restaurants = [
+    Restaurant(
       id: '1',
       title: 'Alavar Restaurant',
       description:
@@ -25,8 +30,9 @@ class Hotel {
           'https://i.ibb.co/qFMPFgh/alavar.jpg',
       price: 1499,
       rating: 4,
+      location: LatLng(6.9006, 122.0614),
     ),
-    Hotel(
+    Restaurant(
       id: '2',
       title: 'Chinitos',
       description:
@@ -36,7 +42,7 @@ class Hotel {
       price: 0,
       rating: 4,
     ),
-    Hotel(
+    Restaurant(
       id: '3',
       title: '23rd Park',
       description:
@@ -46,7 +52,7 @@ class Hotel {
       price: 180,
       rating: 4,
     ),
-    Hotel(
+    Restaurant(
       id: '4',
       title: 'Village Restaurant',
       description:
@@ -56,7 +62,7 @@ class Hotel {
       price: 0,
       rating: 4,
     ),
-    Hotel(
+    Restaurant(
       id: '5',
       title: 'Mano Mano',
       description:
@@ -66,7 +72,7 @@ class Hotel {
       price: 1800,
       rating: 5,
     ),
-    Hotel(
+    Restaurant(
       id: '6',
       title: 'Ole Ole',
       description:
@@ -76,7 +82,7 @@ class Hotel {
       price: 1000,
       rating: 4,
     ),
-    Hotel(
+    Restaurant(
       id: '7',
       title: 'Barcode',
       description:
@@ -86,7 +92,7 @@ class Hotel {
       price: 5862,
       rating: 4,
     ),
-    Hotel(
+    Restaurant(
       id: '8',
       title: 'Bay Tal Mal',
       description:
@@ -96,7 +102,7 @@ class Hotel {
       price: 1200,
       rating: 4,
     ),
-    Hotel(
+    Restaurant(
       id: '9',
       title: 'Abalone',
       description:
