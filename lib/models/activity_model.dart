@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_travel_app_ui/utils/geopoint_convertion.dart';
 
 class Activity {
   final String id;
@@ -7,6 +9,7 @@ class Activity {
   final String imageUrl;
   final double rating;
   final LatLng location;
+  final String placeType;
 
   const Activity({
     required this.id,
@@ -15,7 +18,20 @@ class Activity {
     required this.imageUrl,
     required this.rating,
     required this.location,
+    required this.placeType,
   });
+
+  Activity.fromJson(Map<String, dynamic> res, String id)
+      : this(
+          id: id,
+          title: res['user_first_name'] as String,
+          description: res['user_last_name'] as String,
+          imageUrl: res['user_address'] as String,
+          rating: res['user_profile'] as double,
+          location: convertGeoPoint(res['user_profile'] as GeoPoint),
+          placeType: res['place_type'] as String,
+        );
+
 
   static const List<Activity> activities = [
     Activity(
@@ -27,6 +43,7 @@ class Activity {
           'https://i.ibb.co/3rb2nky/Paseo-del-mar.jpg',
       rating: 4,
       location: LatLng(6.9006, 122.0614),
+      placeType: 'tambayan'
     ),
     Activity(
       id: '2',
@@ -38,6 +55,7 @@ class Activity {
       rating: 4,
 
       location: LatLng(122.0813,32.56484),
+      placeType: 'tambayan'
     ),
     Activity(
       id: '3',
@@ -48,6 +66,7 @@ class Activity {
           'https://i.ibb.co/n3Fvx1x/Taluksangay-Mosque2.jpg',
       rating: 4,
       location: LatLng(122.0813,6.9006),
+      placeType: 'tambayan'
     ),
     Activity(
       id: '4',
@@ -58,6 +77,7 @@ class Activity {
           'https://i.ibb.co/GsgQDJC/City-hall2.jpg',
       rating: 4,
       location: LatLng(122.0813,6.9006),
+      placeType: 'tambayan'
     ),
     Activity(
       id: '5',
@@ -68,6 +88,7 @@ class Activity {
           'https://i.ibb.co/yVz1LDp/FB-IMG-1666153740163.jpg" alt="FB-IMG-1666153740163',
       rating: 5,
       location: LatLng(122.0813,6.9006),
+      placeType: 'tambayan'
     ),
     Activity(
       id: '6',
@@ -78,6 +99,7 @@ class Activity {
           'https://i.ibb.co/Sd4NphF/FB-IMG-1666154228344.jpg',
       rating: 4,
       location: LatLng(122.0813,6.9006),
+      placeType: 'tambayan'
     ),
     Activity(
       id: '7',
@@ -88,6 +110,7 @@ class Activity {
           'https://i.ibb.co/4myMgzK/Museum.jpg',
       rating: 4,
       location: LatLng(122.0813,6.9006),
+      placeType: 'tambayan'
     ),
     Activity(
       id: '8',
@@ -98,6 +121,7 @@ class Activity {
           'https://i.ibb.co/DM6szdv/Merloquet-Falls.jpg',
       rating: 4,
       location: LatLng(122.0813,6.9006),
+      placeType: 'tambayan'
     ),
     Activity(
       id: '9',
@@ -108,6 +132,7 @@ class Activity {
           'https://i.ibb.co/7RzM67f/Yakan-weaving.jpg',
       rating: 4,
       location: LatLng(122.0813,6.9006),
+      placeType: 'tambayan'
     ),
   ];
 }

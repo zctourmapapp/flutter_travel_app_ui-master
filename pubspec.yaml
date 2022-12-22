@@ -40,6 +40,16 @@ dependencies:
   google_maps_flutter: ^2.2.1
   geolocator: ^9.0.2
   geocoding: ^2.0.5
+  flutter_native_splash: ^2.2.16
+  get: ^4.6.5
+  flutter_svg: ^1.1.6
+  dio: ^4.0.6
+  flutter_polyline_points: ^1.0.0
+  location: ^4.4.0
+  firebase_core: ^2.4.0
+  firebase_auth: ^4.2.1
+  firebase_storage: ^11.0.8
+  cloud_firestore: ^4.2.0
 
 dev_dependencies:
   flutter_test:

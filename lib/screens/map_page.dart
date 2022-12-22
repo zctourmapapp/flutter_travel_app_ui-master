@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../models/activity_model.dart';
@@ -7,12 +6,15 @@ import '../models/restaurant_model.dart';
 
 
 const LatLng currentLocation = LatLng(6.9136, 122.0614);
+
 const LatLng dest1 = LatLng(6.9006, 122.0614);
-  class MapPage extends StatelessWidget {
+
+class MapPage extends StatelessWidget {
   const MapPage({
     Key? key,
     required this.activity,
   }) : super(key: key);
+
   final Activity activity;
 
 @override
@@ -143,5 +145,4 @@ class _RestoMapPageState extends StatelessWidget{
     _markers[id] = marker;
     _RestoMapPageState(restaurant: restaurant);
   }
-
 }
