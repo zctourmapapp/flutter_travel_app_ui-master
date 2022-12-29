@@ -1,4 +1,3 @@
-
 class UserModel {
   final String? userID;
   final String? userFirstName;

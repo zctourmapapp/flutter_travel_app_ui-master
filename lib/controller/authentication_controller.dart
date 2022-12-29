@@ -18,7 +18,6 @@ class Authentication extends GetxController{
   final TextEditingController address = TextEditingController();
   final TextEditingController profile = TextEditingController();
 
-
   String userCollection = 'User';
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
@@ -31,7 +30,6 @@ class Authentication extends GetxController{
 
   RxString exception = ''.obs;
 
-  
   RxString authSuccess = ''.obs;
 
   RxString authException = ''.obs;
@@ -166,10 +164,6 @@ class Authentication extends GetxController{
         email: email.text,
         password: password.text,
       );
-
-      if (res.user != null) {
-        // Get.toNamed(userRoute);
-      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {
         authException.value = invalidEmailException;

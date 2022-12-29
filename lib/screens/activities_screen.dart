@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'activity_details_screen.dart';
-
 import '../models/activity_model.dart';
-import '../widgets/custom_header.dart';
 
 class ActivitiesScreen extends StatelessWidget {
   const ActivitiesScreen({Key? key}) : super(key: key);
@@ -19,8 +17,6 @@ class ActivitiesScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 50),
-          const CustomHeader(title: 'Tourist Spots'),
           _ActivitiesMasonryGrid(
             width: width,
             activities: activities,
